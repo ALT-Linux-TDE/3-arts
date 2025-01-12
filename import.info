@@ -1,7 +1,0 @@
-EVR: 2:1.5.10-14.0.4_1.oss132
-Name: trinity-arts
-Version: 1.5.10
-Release: 14.0.4_1
-Epoch: 2
-srpm: TRINITY/trinity/rpm/opensuse13.2/trinity-r14/SRPMS/trinity-arts-1.5.10-14.0.4_1.oss132.src.rpm
-%changelog

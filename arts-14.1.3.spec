@@ -1,7 +1,7 @@
 # BEGIN SourceDeps(oneline):
 # Automatically added by buildreq on Sun Dec 11 2016
 # optimized out: cmake-modules fontconfig glib2-devel libaudiofile-devel libogg-devel libstdc++-devel libtqt3-devel pkg-config python-base python-modules tqt3 tqt3-dev-tools
-BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-devel libtqt5-devel libvorbis-devel perl(DB_File.pm) perl(Fcntl.pm) perl(Shell.pm) pkgconfig(audiofile) pkgconfig(glib-2.0) pkgconfig(gthread-2.0)
+BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-devel libtqt4-devel libvorbis-devel perl(DB_File.pm) perl(Fcntl.pm) perl(Shell.pm) pkgconfig(audiofile) pkgconfig(glib-2.0) pkgconfig(gthread-2.0)
 # END SourceDeps(oneline)
 BuildRequires(pre):	rpm-macros-suse-compat
 BuildRequires(pre):	rpm-macros-cmake
@@ -96,7 +96,6 @@ Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
 %if "%{?tde_prefix}" == "/usr"
 Obsoletes:	arts
 %endif
-Source44: import.info
 
 %description
 arts (analog real-time synthesizer) is the sound system of TDE.
