@@ -109,8 +109,8 @@ typedef	unsigned short int	GslFpuState;
 static inline void	gsl_fpu_setround	(GslFpuState		*cw);
 static inline int	gsl_fpu_okround		(void);
 static inline void	gsl_fpu_restore		(GslFpuState		 cv);
-static inline int	gsl_ftoi /* nearest */	(register float		 f)  G_GNUC_CONST;
-static inline int	gsl_dtoi /* nearest */	(register double	 f)  G_GNUC_CONST;
+static inline int	gsl_ftoi /* nearest */	(float		 f)  G_GNUC_CONST;
+static inline int	gsl_dtoi /* nearest */	(double	 f)  G_GNUC_CONST;
 /* fallbacks for the !386 case are below */
 #endif
 
@@ -204,7 +204,7 @@ gsl_fpu_restore (GslFpuState cv)
 	   : "m" (*&cv));
 }
 static inline int G_GNUC_CONST
-gsl_ftoi (register float f)
+gsl_ftoi (float f)
 {
   int r;
   
@@ -214,7 +214,7 @@ gsl_ftoi (register float f)
   return r;
 }
 static inline int G_GNUC_CONST
-gsl_dtoi (register double f)
+gsl_dtoi (double f)
 {
   int r;
   
@@ -228,12 +228,12 @@ gsl_dtoi (register double f)
 #  define gsl_fpu_okround()     (1)
 #  define gsl_fpu_restore(x)    /* nop */
 static inline int G_GNUC_CONST
-gsl_ftoi (register float v)
+gsl_ftoi (float v)
 {
   return v < -0.0 ? v - 0.5 : v + 0.5;
 }
 static inline int G_GNUC_CONST
-gsl_dtoi (register double v)
+gsl_dtoi (double v)
 {
   return v < -0.0 ? v - 0.5 : v + 0.5;
 }
@@ -243,4 +243,4 @@ gsl_dtoi (register double v)
 }
 #endif /* __cplusplus */
 
-#endif /* __GSL_IEEE754_H__ */		/* vim: set ts=8 sw=2 sts=2: */
+#endif /* __GSL_IEEE754_H__ */

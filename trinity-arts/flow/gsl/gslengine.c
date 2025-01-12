@@ -749,5 +749,3 @@ gsl_engine_wait_on_trans (void)
   /* call all free() functions */
   gsl_engine_garbage_collect ();
 }
-
-/* vim:set ts=8 sts=2 sw=2: */

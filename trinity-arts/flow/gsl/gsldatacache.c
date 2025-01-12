@@ -264,8 +264,8 @@ data_cache_lookup_nextmost_node_L (GslDataCache *dcache,
       nodes -= 1;
       do
 	{
-	  register gint cmp;
-	  register guint i;
+	  gint cmp;
+	  guint i;
 	  
 	  i = (n_nodes + 1) >> 1;
 	  check = nodes + i;

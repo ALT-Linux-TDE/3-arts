@@ -273,7 +273,7 @@ const_values_lookup_nextmost (ConstValuesArray *array,
       do
 	{
 	  guint i;
-	  register gfloat cmp;
+	  gfloat cmp;
 	  
 	  i = (n_nodes + 1) >> 1;
 	  check = nodes + i;
@@ -716,6 +716,3 @@ _gsl_init_engine_utils (void)
   gsl_mutex_init (&pqueue_mutex);
   gsl_cond_init (&pqueue_done_cond);
 }
-
-
-/* vim:set ts=8 sts=2 sw=2: */

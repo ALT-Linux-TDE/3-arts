@@ -644,7 +644,3 @@ usage (void)
   g_print ("  poly | polyr | polyp                      polynom test (+roots or +poles)\n");
   exit (1);
 }
-
-
-
-/* vim:set ts=8 sts=2 sw=2: */

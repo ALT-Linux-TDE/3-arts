@@ -515,4 +515,4 @@ gsl_poly_eval (unsigned int degree,
 }
 #endif /* __cplusplus */
 
-#endif /* __GSL_MATH_H__ */	/* vim: set ts=8 sw=2 sts=2: */
+#endif /* __GSL_MATH_H__ */

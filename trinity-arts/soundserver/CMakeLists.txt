@@ -38,7 +38,7 @@ install( FILES
     ${CMAKE_CURRENT_BINARY_DIR}/artsversion.h
     ${CMAKE_CURRENT_BINARY_DIR}/soundserver.h
     ${CMAKE_CURRENT_BINARY_DIR}/kmedia2.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} )
+  DESTINATION ${INCLUDE_INSTALL_DIR}/${CMAKE_PROJECT_NAME} )
 
 
 ##### other data ################################
@@ -59,13 +59,13 @@ install( FILES
 ##### kmedia2_idl (shared lib) ##################
 
 add_custom_command(
-  OUTPUT kmedia2.cc
+  OUTPUT kmedia2.cpp
   COMMAND ../mcopidl/mcopidl ARGS -t ${MCOPINC} ${CMAKE_CURRENT_SOURCE_DIR}/kmedia2.idl
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/kmedia2.idl
 )
 
 tde_add_library( kmedia2_idl SHARED
-  SOURCES kmedia2.cc
+  SOURCES kmedia2.cpp
   VERSION 1.0.0
   LINK artsflow_idl-shared
   DESTINATION ${LIB_INSTALL_DIR}
@@ -76,13 +76,13 @@ tde_add_library( kmedia2_idl SHARED
 ##### soundserver_idl (shared lib) ##############
 
 add_custom_command(
-  OUTPUT soundserver.cc soundserver.h
+  OUTPUT soundserver.cpp soundserver.h
   COMMAND ../mcopidl/mcopidl ARGS -t ${MCOPINC} ${CMAKE_CURRENT_SOURCE_DIR}/soundserver.idl
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/soundserver.idl
 )
 
 tde_add_library( soundserver_idl SHARED
-  SOURCES soundserver.cc
+  SOURCES soundserver.cpp
   VERSION 1.0.0
   LINK kmedia2_idl-shared
   DESTINATION ${LIB_INSTALL_DIR}
@@ -93,7 +93,7 @@ tde_add_library( soundserver_idl SHARED
 ##### artsgslplayobject (shared lib) ############
 
 tde_add_library( artsgslplayobject SHARED
-  SOURCES gslplayobject_impl.cc
+  SOURCES gslplayobject_impl.cpp
   VERSION 0.0.0
   LINK soundserver_idl-shared artsflow-shared
   DESTINATION ${LIB_INSTALL_DIR}
@@ -103,7 +103,7 @@ tde_add_library( artsgslplayobject SHARED
 ##### artswavplayobject (shared lib) ############
 
 tde_add_library( artswavplayobject SHARED
-  SOURCES wavplayobject_impl.cc
+  SOURCES wavplayobject_impl.cpp
   VERSION 0.0.0
   LINK soundserver_idl-shared artsflow-shared
   DESTINATION ${LIB_INSTALL_DIR}
@@ -113,7 +113,7 @@ tde_add_library( artswavplayobject SHARED
 ##### kmedia2 (shared lib) ######################
 
 tde_add_library( kmedia2 SHARED
-  SOURCES fileinputstream_impl.cc stdoutwriter_impl.cc
+  SOURCES fileinputstream_impl.cpp stdoutwriter_impl.cpp
   VERSION 1.0.0
   LINK kmedia2_idl-shared artsflow-shared
   DESTINATION ${LIB_INSTALL_DIR}
@@ -125,9 +125,9 @@ tde_add_library( kmedia2 SHARED
 set( target artsd )
 
 set( ${target}_SRCS
-  soundserverv2_impl.cc soundserver_impl.cc simplesoundserver_impl.cc
-  artsd.cc cpuusage.cc samplestorage_impl.cc crashhandler.cc
-  soundserverstartup_impl.cc
+  soundserverv2_impl.cpp soundserver_impl.cpp simplesoundserver_impl.cpp
+  artsd.cpp cpuusage.cpp samplestorage_impl.cpp crashhandler.cpp
+  soundserverstartup_impl.cpp
 )
 
 tde_add_executable( ${target}
@@ -140,7 +140,7 @@ tde_add_executable( ${target}
 ##### artsplay ##################################
 
 tde_add_executable( artsplay
-  SOURCES artsplay.cc
+  SOURCES artsplay.cpp
   LINK soundserver_idl-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )
@@ -149,7 +149,7 @@ tde_add_executable( artsplay
 ##### artscat ###################################
 
 tde_add_executable( artscat
-  SOURCES artscat.cc
+  SOURCES artscat.cpp
   LINK soundserver_idl-shared artsflow-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )
@@ -164,14 +164,14 @@ tde_add_executable( artswrapper
 
 # FIXME "artsdpath" seems inconsistent name
 # necessary for artswrapper
-SET( artsdpath  ${BIN_INSTALL_DIR}/artsd )
-set_target_properties( artswrapper PROPERTIES COMPILE_FLAGS -DEXECUTE=\\"${artsdpath}\\" )
+set( artsdpath  ${BIN_INSTALL_DIR}/artsd )
+set_property( TARGET artswrapper APPEND PROPERTY COMPILE_DEFINITIONS EXECUTE="${artsdpath}" )
 
 
 ##### artsshell #################################
 
 tde_add_executable( artsshell
-  SOURCES artsshell.cc tradercheck.cc
+  SOURCES artsshell.cpp tradercheck.cpp
   LINK soundserver_idl-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )
@@ -180,7 +180,7 @@ tde_add_executable( artsshell
 ##### artsrec ###################################
 
 tde_add_executable( artsrec
-  SOURCES artsrec.cc
+  SOURCES artsrec.cpp
   LINK soundserver_idl-shared artsflow-shared
   DESTINATION ${BIN_INSTALL_DIR}
 )

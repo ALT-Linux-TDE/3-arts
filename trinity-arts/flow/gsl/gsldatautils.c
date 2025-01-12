@@ -458,5 +458,3 @@ gsl_data_find_block (GslDataHandle *handle,
     }
   return -1;
 }
-
-/* vim:set ts=8 sts=2 sw=2: */

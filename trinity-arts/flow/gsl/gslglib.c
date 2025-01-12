@@ -68,8 +68,8 @@ g_stpcpy (gchar       *dest,
   g_return_val_if_fail (src != NULL, NULL);
   return stpcpy (dest, src);
 #else
-  register gchar *d = dest;
-  register const gchar *s = src;
+  gchar *d = dest;
+  const gchar *s = src;
 
   g_return_val_if_fail (dest != NULL, NULL);
   g_return_val_if_fail (src != NULL, NULL);
@@ -2036,7 +2036,7 @@ printf_string_upper_bound (const gchar *format,
 
   while (*format)
     {
-      register gchar c = *format++;
+      gchar c = *format++;
 
       if (c != '%')
 	len += 1;
@@ -2396,5 +2396,3 @@ g_path_is_absolute (const gchar *file_name)
 
   return FALSE;
 }
-
-/* vim:set ts=8 sw=2 sts=2: */

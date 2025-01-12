@@ -40,7 +40,7 @@ using namespace std;
 using namespace Arts;
 
 #ifndef KDE_USE_FINAL
-#include "yacc.cc.h"
+#include "yacc.cpp.h"
 #endif
 
 extern int idl_line_no;

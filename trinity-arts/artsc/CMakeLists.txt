@@ -86,7 +86,7 @@ tde_add_library( artsdsp_st SHARED
   DESTINATION ${LIB_INSTALL_DIR}
 )
 
-set_target_properties( artsdsp_st-shared PROPERTIES COMPILE_FLAGS -DARTSC_BACKEND=\\"${LIB_INSTALL_DIR}/libartscbackend.la\\" )
+set_property( TARGET artsdsp_st-shared APPEND PROPERTY COMPILE_DEFINITIONS ARTSC_BACKEND="${LIB_INSTALL_DIR}/libartscbackend.la" )
 
 
 ##### artsc (shared lib) ########################
@@ -98,13 +98,13 @@ tde_add_library( artsc SHARED
   DESTINATION ${LIB_INSTALL_DIR}
 )
 
-set_target_properties( artsc-shared PROPERTIES COMPILE_FLAGS -DARTSC_BACKEND=\\"${LIB_INSTALL_DIR}/libartscbackend.la\\" )
+set_property( TARGET artsc-shared APPEND PROPERTY COMPILE_DEFINITIONS ARTSC_BACKEND="${LIB_INSTALL_DIR}/libartscbackend.la" )
 
 
 ##### artscbackend (shared lib) #################
 
 tde_add_library( artscbackend SHARED
-  SOURCES artscbackend.cc
+  SOURCES artscbackend.cpp
   VERSION 0.0.0
   LINK soundserver_idl-shared artsflow-shared
   DESTINATION ${LIB_INSTALL_DIR}

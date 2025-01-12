@@ -313,7 +313,7 @@ struct _GTrashStack
 static inline  guint
 g_bit_storage (gulong number)
 {
-  register guint n_bits = 0;
+  guint n_bits = 0;
 
   do
     {
@@ -854,5 +854,4 @@ void		g_scanner_warn			(GScanner	*scanner,
 #undef inline
 #endif
 
-#endif /* __GSL_GLIB_H__ */ /* vim: set ts=8 sw=2 sts=2: */
-
+#endif /* __GSL_GLIB_H__ */

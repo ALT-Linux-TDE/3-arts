@@ -27,14 +27,14 @@ link_directories(
 
 ##### headers ###################################
 
-install( FILES
-    qiomanager.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} )
+install(
+  FILES qiomanager.h
+  DESTINATION ${INCLUDE_INSTALL_DIR}/${CMAKE_PROJECT_NAME} )
 
 
 ##### qtmcop ##############################
 
-set( qtmcop_SRCS qiomanager.cc )
+set( qtmcop_SRCS qiomanager.cpp )
 
 tde_add_library( qtmcop SHARED AUTOMOC
   SOURCES ${qtmcop_SRCS}

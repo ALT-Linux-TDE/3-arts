@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
  */
 #include <string.h>
-#include <sys/poll.h>
+#include <poll.h>
 #include <sys/time.h>
 #include <errno.h>
 
@@ -780,4 +780,3 @@ _engine_master_thread (gpointer data)
       run = gsl_thread_sleep (0);
     }
 }
-/* vim:set ts=8 sts=2 sw=2: */

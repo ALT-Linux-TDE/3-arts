@@ -18,15 +18,15 @@ include_directories(
 
 ##### headers ###################################
 
-install( FILES
-    giomanager.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} )
+install(
+  FILES giomanager.h
+  DESTINATION ${INCLUDE_INSTALL_DIR}/${CMAKE_PROJECT_NAME} )
 
 
 ##### gmcop (shared lib) ########################
 
 tde_add_library( gmcop SHARED
-  SOURCES giomanager.cc
+  SOURCES giomanager.cpp
   VERSION 1.0.0
   LINK mcop-shared ${GLIB2_LIBRARIES}
   DESTINATION ${LIB_INSTALL_DIR}

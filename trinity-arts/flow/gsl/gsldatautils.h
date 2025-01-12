@@ -905,5 +905,3 @@ gsl_conv_to_double (GslWaveFormatType format,
 #endif /* __cplusplus */
 
 #endif /* __GSL_DATA_UTILS_H__ */
-
-/* vim:set ts=8 sts=2 sw=2: */

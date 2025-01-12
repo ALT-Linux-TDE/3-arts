@@ -1,5 +1,9 @@
 /* Defined if you have fvisibility and fvisibility-inlines-hidden support. */
-#cmakedefine __KDE_HAVE_GCC_VISIBILITY 1
+#cmakedefine __TDE_HAVE_GCC_VISIBILITY 1
+
+/* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
+   significant byte first (like Motorola and SPARC, unlike Intel). */
+#cmakedefine WORDS_BIGENDIAN @WORDS_BIGENDIAN@
 
 #cmakedefine HAVE_SYS_TIME_H 1
 #cmakedefine TIME_WITH_SYS_TIME 1
@@ -31,12 +35,11 @@
 #cmakedefine HAVE_LIBASOUND2 1
 #cmakedefine HAVE_ALSA_ASOUNDLIB_H 1
 #cmakedefine HAVE_SND_PCM_RESUME 1
-#cmakedefine ALSA_PCM_OLD_SW_PARAMS_API 1
-#cmakedefine ALSA_PCM_OLD_HW_PARAMS_API 1
 
 #cmakedefine HAVE_SYS_SOUNDCARD_H 1
 #cmakedefine HAVE_LIBPTHREAD 1
-#define HAVE_IOCTL_INT_ULONGINT_DOTS 3
+#cmakedefine HAVE_IOCTL_INT_INT_DOTS 1
+#cmakedefine HAVE_IOCTL_INT_ULONG_DOTS 2
 
 #cmakedefine HAVE_LIBJACK 1
 #cmakedefine HAVE_LIBSNDIO 1

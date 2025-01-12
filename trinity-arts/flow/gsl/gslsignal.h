@@ -113,7 +113,7 @@ static inline double	gsl_approx_exp2	(float ex)	G_GNUC_CONST;
  * d2 = 1.0091272542790025586079663559158;
  * positive_atan1(x) = 1 + (n1 * x + n2) / ((1 + d1 * x) * x + d2);
  */
-static inline double	gsl_approx_atan1 	  (register double x)  G_GNUC_CONST;
+static inline double	gsl_approx_atan1 	  (double x)  G_GNUC_CONST;
 
 /**
  * gsl_approx_atan1_prescale
@@ -134,7 +134,7 @@ double			gsl_approx_atan1_prescale (double	   boost_amount);
  * wasn't minimized, but distributed to best fit the curverture of a
  * quarter circle. The maximum error is below 0.092.
  */
-static inline double	gsl_approx_qcircle1	  (register double x)  G_GNUC_CONST;
+static inline double	gsl_approx_qcircle1	  (double x)  G_GNUC_CONST;
 
 /**
  * gsl_approx_qcircle2
@@ -145,7 +145,7 @@ static inline double	gsl_approx_qcircle1	  (register double x)  G_GNUC_CONST;
  * wasn't minimized, but distributed to best fit the curverture of a
  * quarter circle. The maximum error is below 0.092.
  */
-static inline double	gsl_approx_qcircle2	  (register double x)  G_GNUC_CONST;
+static inline double	gsl_approx_qcircle2	  (double x)  G_GNUC_CONST;
 
 /**
  * gsl_approx_qcircle3
@@ -156,7 +156,7 @@ static inline double	gsl_approx_qcircle2	  (register double x)  G_GNUC_CONST;
  * wasn't minimized, but distributed to best fit the curverture of a
  * quarter circle. The maximum error is below 0.092.
  */
-static inline double	gsl_approx_qcircle3	  (register double x)  G_GNUC_CONST;
+static inline double	gsl_approx_qcircle3	  (double x)  G_GNUC_CONST;
 
 /**
  * gsl_approx_qcircle4
@@ -167,7 +167,7 @@ static inline double	gsl_approx_qcircle3	  (register double x)  G_GNUC_CONST;
  * wasn't minimized, but distributed to best fit the curverture of a
  * quarter circle. The maximum error is below 0.092.
  */
-static inline double	gsl_approx_qcircle4	  (register double x)  G_GNUC_CONST;
+static inline double	gsl_approx_qcircle4	  (double x)  G_GNUC_CONST;
 
 
 /* --- windows --- */
@@ -186,11 +186,11 @@ extern const gdouble *gsl_cent_table;
 
 /* --- implementation details --- */
 static inline double  G_GNUC_CONST
-gsl_approx_atan1 (register double x)
+gsl_approx_atan1 (double x)
 {
   if (x < 0)	/* make use of -atan(-x)==atan(x) */
     {
-      register double numerator, denominator = -1.0;
+      double numerator, denominator = -1.0;
 
       denominator += x * 0.81901156857081841441890603235599; /* d1 */
       numerator = x * 0.41156875521951602506487246309908; /* -n1 */
@@ -202,7 +202,7 @@ gsl_approx_atan1 (register double x)
     }
   else
     {
-      register double numerator, denominator = 1.0;
+      double numerator, denominator = 1.0;
 
       denominator += x * 0.81901156857081841441890603235599; /* d1 */
       numerator = x * -0.41156875521951602506487246309908; /* n1 */
@@ -215,7 +215,7 @@ gsl_approx_atan1 (register double x)
 }
 
 static inline double	G_GNUC_CONST
-gsl_approx_qcircle1 (register double x)
+gsl_approx_qcircle1 (double x)
 {
   double numerator = 1.20460124790369468987715633298929 * x - 1.20460124790369468987715633298929;
   double denominator = x - 1.20460124790369468987715633298929;
@@ -224,7 +224,7 @@ gsl_approx_qcircle1 (register double x)
 }
 
 static inline double	G_GNUC_CONST
-gsl_approx_qcircle2 (register double x)
+gsl_approx_qcircle2 (double x)
 {
   double numerator = 1.20460124790369468987715633298929*x;
   double denominator = x + 0.20460124790369468987715633298929;
@@ -233,7 +233,7 @@ gsl_approx_qcircle2 (register double x)
 }
 
 static inline double	G_GNUC_CONST
-gsl_approx_qcircle3 (register double x)
+gsl_approx_qcircle3 (double x)
 {
   double numerator = 0.20460124790369468987715633298929 - 0.20460124790369468987715633298929 * x;
   double denominator = x + 0.20460124790369468987715633298929;
@@ -242,7 +242,7 @@ gsl_approx_qcircle3 (register double x)
 }
 
 static inline double	G_GNUC_CONST
-gsl_approx_qcircle4 (register double x)
+gsl_approx_qcircle4 (double x)
 {
   double numerator = -0.20460124790369468987715633298929 * x;
   double denominator = x - 1.20460124790369468987715633298929;
@@ -253,8 +253,8 @@ gsl_approx_qcircle4 (register double x)
 static inline double G_GNUC_CONST
 gsl_approx_exp2 (float ex)
 {
-  register GslFloatIEEE754 fp = { 0, };
-  register double numer, denom, x;
+  GslFloatIEEE754 fp = { 0, };
+  double numer, denom, x;
   gint i;
 
   i = gsl_ftoi (ex);

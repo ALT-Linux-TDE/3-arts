@@ -147,7 +147,7 @@ diff (guint        m,
 
 /* --- fft implementation --- */
 #define BUTTERFLY_XY(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,Wre,Wim) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = X2re * Wre;  \
   T1im = X2im * Wre;  \
   T2re = X2im * Wim;  \
@@ -162,7 +162,7 @@ diff (guint        m,
   Y2im = T2im;        \
 }
 #define BUTTERFLY_10(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,_1,_2) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re - X2re; \
   T2im = X1im - X2im; \
   Y1re = X1re + X2re; \
@@ -171,7 +171,7 @@ diff (guint        m,
   Y2im = T2im;        \
 }
 #define BUTTERFLY_01(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,_1,_2) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re + X2im; \
   T2im = X1im - X2re; \
   Y1re = X1re - X2im; \
@@ -180,7 +180,7 @@ diff (guint        m,
   Y2im = T2im;        \
 }
 #define BUTTERFLY_0m(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,_1,_2) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re - X2im; \
   T2im = X1im + X2re; \
   Y1re = X1re + X2im; \
@@ -189,7 +189,7 @@ diff (guint        m,
   Y2im = T2im;        \
 }
 #define BUTTERFLY_10scale(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,S) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re - X2re; \
   T2im = X1im - X2im; \
   Y1re = X1re + X2re; \
@@ -200,7 +200,7 @@ diff (guint        m,
   Y1im *= S;          \
 }
 #define WMULTIPLY(Wre,Wim,Dre,Dim) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = Wre * Dre;  \
   T1im = Wim * Dre;  \
   T2re = Wim * Dim;  \

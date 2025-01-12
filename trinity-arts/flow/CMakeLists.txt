@@ -32,7 +32,7 @@ install( FILES
     fft.h artsflow.idl audioio.h resample.h cpuinfo.h
     bufferqueue.h gslschedule.h
     ${CMAKE_CURRENT_BINARY_DIR}/artsflow.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} )
+  DESTINATION ${INCLUDE_INSTALL_DIR}/${CMAKE_PROJECT_NAME} )
 
 
 ##### other data ################################
@@ -48,19 +48,19 @@ install( FILES
 set( target artsflow )
 
 set( ${target}_SRCS
-  synth_play_impl.cc gslschedule.cc audiosubsys.cc
-  pipebuffer.cc convert.cc synth_wave_sin_impl.cc
-  synth_frequency_impl.cc synth_multi_add_impl.cc
-  synth_add_impl.cc synth_mul_impl.cc synth_play_wav_impl.cc
-  stdsynthmodule.cc cache.cc asyncschedule.cc bytestreamtoaudio_impl.cc
-  stereovolumecontrol_impl.cc stereoeffectstack_impl.cc
-  fft.c stereofftscope_impl.cc virtualports.cc bus.cc
-  audiomanager_impl.cc synth_record_impl.cc resample.cc
-  audioio.cc audioiooss.cc audioioalsa.cc audioioalsa9.cc
-  audioionull.cc audioiolibaudioio.cc audioioesd.cc audioiosndio.cc
-  audioiojack.cc audioiosun.cc audioioaix.cc audioionas.cc
-  cpuinfo.cc audioioossthreaded.cc audiotobytestream_impl.cc
-  audioiosgi.cc audioiocsl.cc audioiomas.cc datahandle_impl.cc
+  synth_play_impl.cpp gslschedule.cpp audiosubsys.cpp
+  pipebuffer.cpp convert.cpp synth_wave_sin_impl.cpp
+  synth_frequency_impl.cpp synth_multi_add_impl.cpp
+  synth_add_impl.cpp synth_mul_impl.cpp synth_play_wav_impl.cpp
+  stdsynthmodule.cpp cache.cpp asyncschedule.cpp bytestreamtoaudio_impl.cpp
+  stereovolumecontrol_impl.cpp stereoeffectstack_impl.cpp
+  fft.c stereofftscope_impl.cpp virtualports.cpp bus.cpp
+  audiomanager_impl.cpp synth_record_impl.cpp resample.cpp
+  audioio.cpp audioiooss.cpp audioioalsa.cpp
+  audioionull.cpp audioiolibaudioio.cpp audioioesd.cpp audioiosndio.cpp
+  audioiojack.cpp audioiosun.cpp audioioaix.cpp audioionas.cpp
+  cpuinfo.cpp audioioossthreaded.cpp audiotobytestream_impl.cpp
+  audioiosgi.cpp audioiocsl.cpp audioiomas.cpp datahandle_impl.cpp
 )
 
 tde_add_library( ${target} SHARED
@@ -73,13 +73,13 @@ tde_add_library( ${target} SHARED
 ##### artsflow_idl (shared lib) #################
 
 add_custom_command(
-  OUTPUT artsflow.cc
+  OUTPUT artsflow.cpp
   COMMAND ../mcopidl/mcopidl
   ARGS -t ${CMAKE_CURRENT_SOURCE_DIR}/artsflow.idl DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/artsflow.idl
 )
 
 tde_add_library( artsflow_idl SHARED
-  SOURCES artsflow.cc
+  SOURCES artsflow.cpp
   VERSION 1.0.0
   LINK mcop-shared ${ALSA_LIBRARIES}
   DESTINATION ${LIB_INSTALL_DIR}

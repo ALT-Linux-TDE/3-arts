@@ -2,7 +2,7 @@
 #include <math.h>
 
 #define BUTTERFLY_XY(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,Wre,Wim) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = X2re * Wre;  \
   T1im = X2im * Wre;  \
   T2re = X2im * Wim;  \
@@ -17,7 +17,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_Yx(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,Wre,Wim) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = X2re * Wim;  \
   T1im = X2im * Wim;  \
   T2re = X2im * Wre;  \
@@ -32,7 +32,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_yX(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,Wre,Wim) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = X2re * Wim;  \
   T1im = X2im * Wim;  \
   T2re = X2im * Wre;  \
@@ -47,7 +47,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_10(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,_1,_2) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re - X2re; \
   T2im = X1im - X2im; \
   Y1re = X1re + X2re; \
@@ -56,7 +56,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_01(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,_1,_2) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re + X2im; \
   T2im = X1im - X2re; \
   Y1re = X1re - X2im; \
@@ -65,7 +65,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_0m(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,_1,_2) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re - X2im; \
   T2im = X1im + X2re; \
   Y1re = X1re + X2im; \
@@ -74,7 +74,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_XX(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,Wre,_2) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = X2re * Wre;  \
   T1im = X2im * Wre;  \
   T2re = T1im; \
@@ -89,7 +89,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_yY(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,Wre,_2) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = X2re * Wre;  \
   T1im = X2im * Wre;  \
   T2re = T1im;  \
@@ -104,7 +104,7 @@
   Y2im = T2im;        \
 }
 #define BUTTERFLY_10scale(X1re,X1im,X2re,X2im,Y1re,Y1im,Y2re,Y2im,S) { \
-  register double T2re, T2im; \
+  double T2re, T2im; \
   T2re = X1re - X2re; \
   T2im = X1im - X2im; \
   Y1re = X1re + X2re; \
@@ -116,7 +116,7 @@
 }
 
 #define WMULTIPLY(Wre,Wim,Dre,Dim) { \
-  register double T1re, T1im, T2re, T2im; \
+  double T1re, T1im, T2re, T2im; \
   T1re = Wre * Dre;  \
   T1im = Wim * Dre;  \
   T2re = Wim * Dim;  \
@@ -224,8 +224,8 @@ bitreverse_fft2synthesis (const unsigned int n,
 static void
 gsl_power2_fft2analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -246,8 +246,8 @@ gsl_power2_fft2analysis (const double *X, double *Y)
 static void
 gsl_power2_fft4analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -283,8 +283,8 @@ gsl_power2_fft4analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft4analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -313,8 +313,8 @@ gsl_power2_fft4analysis (const double *X, double *Y)
 static void
 gsl_power2_fft8analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -406,8 +406,8 @@ gsl_power2_fft8analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft8analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -448,8 +448,8 @@ gsl_power2_fft8analysis (const double *X, double *Y)
 static void
 gsl_power2_fft16analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -687,8 +687,8 @@ gsl_power2_fft16analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft16analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -751,8 +751,8 @@ gsl_power2_fft16analysis (const double *X, double *Y)
 static void
 gsl_power2_fft32analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -1352,8 +1352,8 @@ gsl_power2_fft32analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft32analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -1458,8 +1458,8 @@ gsl_power2_fft32analysis (const double *X, double *Y)
 static void
 gsl_power2_fft64analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -2051,8 +2051,8 @@ gsl_power2_fft64analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft64analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -2239,8 +2239,8 @@ gsl_power2_fft64analysis (const double *X, double *Y)
 static void
 gsl_power2_fft128analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -3412,8 +3412,8 @@ gsl_power2_fft128analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft128analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -3443,8 +3443,8 @@ gsl_power2_fft128analysis (const double *X, double *Y)
 static void
 gsl_power2_fft256analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -3573,8 +3573,8 @@ gsl_power2_fft256analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft256analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -3606,8 +3606,8 @@ gsl_power2_fft256analysis (const double *X, double *Y)
 static void
 gsl_power2_fft512analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -3901,8 +3901,8 @@ gsl_power2_fft512analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft512analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -3936,8 +3936,8 @@ gsl_power2_fft512analysis (const double *X, double *Y)
 static void
 gsl_power2_fft1024analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4011,8 +4011,8 @@ gsl_power2_fft1024analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft1024analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4048,8 +4048,8 @@ gsl_power2_fft1024analysis (const double *X, double *Y)
 static void
 gsl_power2_fft2048analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4165,8 +4165,8 @@ gsl_power2_fft2048analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft2048analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4204,8 +4204,8 @@ gsl_power2_fft2048analysis (const double *X, double *Y)
 static void
 gsl_power2_fft4096analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4283,8 +4283,8 @@ gsl_power2_fft4096analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft4096analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4324,8 +4324,8 @@ gsl_power2_fft4096analysis (const double *X, double *Y)
 static void
 gsl_power2_fft8192analysis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4405,8 +4405,8 @@ gsl_power2_fft8192analysis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft8192analysis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4448,8 +4448,8 @@ gsl_power2_fft8192analysis (const double *X, double *Y)
 static void
 gsl_power2_fft2synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4470,8 +4470,8 @@ gsl_power2_fft2synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft4synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4507,8 +4507,8 @@ gsl_power2_fft4synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft4synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4537,8 +4537,8 @@ gsl_power2_fft4synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft8synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4630,8 +4630,8 @@ gsl_power2_fft8synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft8synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4672,8 +4672,8 @@ gsl_power2_fft8synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft16synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4911,8 +4911,8 @@ gsl_power2_fft16synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft16synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -4975,8 +4975,8 @@ gsl_power2_fft16synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft32synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -5576,8 +5576,8 @@ gsl_power2_fft32synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft32synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -5682,8 +5682,8 @@ gsl_power2_fft32synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft64synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -6275,8 +6275,8 @@ gsl_power2_fft64synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft64synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -6463,8 +6463,8 @@ gsl_power2_fft64synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft128synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -7636,8 +7636,8 @@ gsl_power2_fft128synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft128synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -7667,8 +7667,8 @@ gsl_power2_fft128synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft256synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -7797,8 +7797,8 @@ gsl_power2_fft256synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft256synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -7830,8 +7830,8 @@ gsl_power2_fft256synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft512synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8125,8 +8125,8 @@ gsl_power2_fft512synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft512synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8160,8 +8160,8 @@ gsl_power2_fft512synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft1024synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8235,8 +8235,8 @@ gsl_power2_fft1024synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft1024synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8272,8 +8272,8 @@ gsl_power2_fft1024synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft2048synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8389,8 +8389,8 @@ gsl_power2_fft2048synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft2048synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8428,8 +8428,8 @@ gsl_power2_fft2048synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft4096synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8507,8 +8507,8 @@ gsl_power2_fft4096synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft4096synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8548,8 +8548,8 @@ gsl_power2_fft4096synthesis (const double *X, double *Y)
 static void
 gsl_power2_fft8192synthesis_skip2 (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 
@@ -8629,8 +8629,8 @@ gsl_power2_fft8192synthesis_skip2 (const double *X, double *Y)
 static void
 gsl_power2_fft8192synthesis (const double *X, double *Y)
 {
-  register unsigned int butterfly, block, offset;
-  register double Wre, Wim;
+  unsigned int butterfly, block, offset;
+  double Wre, Wim;
 
   butterfly = block = offset = 0, Wre = Wim = 0.0; /* silence compiler */
 

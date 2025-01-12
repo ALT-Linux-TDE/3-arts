@@ -22,7 +22,7 @@ include_directories(
 ##### mcop_mt (shared lib ) #####################
 
 tde_add_library( mcop_mt SHARED
-  SOURCES threads_posix.cc
+  SOURCES threads_posix.cpp
   VERSION 1.0.0
   LINK artsflow-shared pthread
   DESTINATION ${LIB_INSTALL_DIR}

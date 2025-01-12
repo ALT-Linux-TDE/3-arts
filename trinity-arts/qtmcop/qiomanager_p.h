@@ -39,7 +39,7 @@
 namespace Arts {
 
 class QIOWatch : public TQObject {
-	Q_OBJECT
+	TQ_OBJECT
 	
 protected:
 	TQSocketNotifier *qsocketnotify;
@@ -61,7 +61,7 @@ public slots:
 };
 
 class QTimeWatch : public TQObject {
-	Q_OBJECT
+	TQ_OBJECT
 	
 protected:
 	TQTimer *timer;

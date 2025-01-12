@@ -993,7 +993,7 @@ static inline gdouble /* Y */
 filter_step_direct_canon_2 (GslIIRFilter *f,
 			    gdouble       X)
 {
-  register guint n = f->order;
+  guint n = f->order;
   gdouble *a = f->a, *b = f->b, *w = f->w;
   gdouble x, y, v;
 
@@ -1025,7 +1025,7 @@ static inline gdouble /* Y */
 filter_step_direct_canon_1 (GslIIRFilter *f,
 			    gdouble       X)
 {
-  register guint n = f->order;
+  guint n = f->order;
   gdouble *a = f->a, *b = f->b, *w = f->w;
   gdouble y, v;
 
@@ -1371,9 +1371,3 @@ gsl_filter_sine_scan (guint order,
     }
   return result;
 }
-
-
-
-
-
-/* vim:set ts=8 sts=2 sw=2: */

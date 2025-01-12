@@ -20,7 +20,7 @@ include_directories(
 set( target mcopidl )
 
 set( ${target}_SRCS
-  mcopidl.cc yacc.cc scanner.cc namespace.cc
+  mcopidl.cpp yacc.cpp scanner.cpp namespace.cpp
 )
 
 tde_add_executable( ${target}

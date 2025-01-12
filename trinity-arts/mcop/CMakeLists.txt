@@ -44,7 +44,7 @@ install( FILES
     weakreference.h dynamicrequest.h anyref.h debug.h
     delayedreturn.h dynamicskeleton.h thread.h core.idl
     ${CMAKE_CURRENT_BINARY_DIR}/arts_export.h
-  DESTINATION ${INCLUDE_INSTALL_DIR} )
+  DESTINATION ${INCLUDE_INSTALL_DIR}/${CMAKE_PROJECT_NAME} )
 
 
 ##### mcop (shared library) #####################
@@ -52,16 +52,16 @@ install( FILES
 set( target mcop )
 
 set( ${target}_SRCS
-  buffer.cc connection.cc core.cc debug.cc dispatcher.cc
-  iomanager.cc object.cc socketconnection.cc tcpconnection.cc
-  unixconnection.cc tcpserver.cc unixserver.cc objectmanager.cc
-  factory.cc idlfilereg.cc ifacerepo_impl.cc mcoputils.cc
-  startupmanager.cc md5.c md5auth.cc referenceclean.cc
-  datapacket.cc asyncstream.cc notification.cc
-  flowsystem.cc extensionloader.cc tmpglobalcomm.cc
-  mcopconfig.cc connect.cc reference.cc type.cc
-  trader_impl.cc dynamicrequest.cc anyref.cc
-  loopback.cc delayedreturn.cc thread.cc dynamicskeleton.cc
+  buffer.cpp connection.cpp core.cpp debug.cpp dispatcher.cpp
+  iomanager.cpp object.cpp socketconnection.cpp tcpconnection.cpp
+  unixconnection.cpp tcpserver.cpp unixserver.cpp objectmanager.cpp
+  factory.cpp idlfilereg.cpp ifacerepo_impl.cpp mcoputils.cpp
+  startupmanager.cpp md5.c md5auth.cpp referenceclean.cpp
+  datapacket.cpp asyncstream.cpp notification.cpp
+  flowsystem.cpp extensionloader.cpp tmpglobalcomm.cpp
+  mcopconfig.cpp connect.cpp reference.cpp type.cpp
+  trader_impl.cpp dynamicrequest.cpp anyref.cpp
+  loopback.cpp delayedreturn.cpp thread.cpp dynamicskeleton.cpp
 )
 
 tde_add_library( ${target} SHARED

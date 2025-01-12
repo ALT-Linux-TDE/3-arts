@@ -278,4 +278,4 @@ gsl_trans_freq2z (double w)
 }
 #endif /* __cplusplus */
 
-#endif /* __GSL_FILTER_H__ */	/* vim:set ts=8 sw=2 sts=2: */
+#endif /* __GSL_FILTER_H__ */

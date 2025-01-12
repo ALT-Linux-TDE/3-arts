@@ -23,7 +23,7 @@ likely at least.
 How to add a new set of tests:
 ==============================
 
-1. create a new .cc file, for this example we'll suppose testarithmetic.cc
+1. create a new .cpp file, for this example we'll suppose testarithmetic.cpp
 2. #include "test.h"
 3. create a struct which will hold all your tests
 
@@ -67,6 +67,6 @@ TESTMAIN(TestArithmetic);
 7. add the following to the Makefile.am (you may want to add more source files,
    as required)
 
-testarithmetic_SOURCES = testarithmetic.cc
+testarithmetic_SOURCES = testarithmetic.cpp
 
 8. add it to check_PROGRAMS

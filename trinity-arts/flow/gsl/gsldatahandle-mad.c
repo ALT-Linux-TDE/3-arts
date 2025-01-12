@@ -707,5 +707,3 @@ gsl_data_handle_mad_testopen (const gchar *file_name,
 }
 
 #endif	/* !GSL_HAVE_LIBMAD */
-
-/* vim:set ts=8 sts=2 sw=2: */

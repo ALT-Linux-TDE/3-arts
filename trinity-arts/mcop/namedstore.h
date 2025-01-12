@@ -32,7 +32,7 @@
  * BC - Status (2002-03-08): NamedStore
  *
  * None of these classes is considered part of the public API. Do NOT use it
- * in your apps. These are part of the implementation of object.cc and not
+ * in your apps. These are part of the implementation of object.cpp and not
  * to be used elsewhere.
  */
 

@@ -245,5 +245,3 @@ WOSC_MIX_VARIANT_NAME (GslWaveOscData *wosc,
 
 #undef WOSC_MIX_VARIANT
 #undef WOSC_MIX_VARIANT_NAME
-
-/* vim:set ts=8 sw=2 sts=2: */

@@ -79,8 +79,6 @@ static int frags;
 typedef int ioctl_request_t;
 #elif defined(HAVE_IOCTL_INT_ULONG_DOTS)
 typedef unsigned long ioctl_request_t;
-#elif defined(HAVE_IOCTL_INT_ULONGINT_DOTS)
-typedef unsigned long int ioctl_request_t;
 #else
 #error "unknown ioctl type (check config.h, adapt configure test)..."
 #endif
@@ -486,7 +484,7 @@ int ioctl (int fd, ioctl_request_t request, ...)
 #endif
 
         default:
-          artsdspdebug("aRts: unhandled /dev/dsp ioctl (%lx - %p)\n",request, argp);
+          artsdspdebug("aRts: unhandled /dev/dsp ioctl (%lx - %p)\n", (unsigned long)request, argp);
           break;
         }
 
@@ -672,6 +670,3 @@ FILE* fopen(const char *path, const char *mode)
 #endif
 
 #endif
-/*
- * vim:ts=4
- */

@@ -219,7 +219,6 @@ gsl_wave_osc_process (GslWaveOscData *wosc,
 	}
     }
   g_assert (!GSL_DOUBLE_IS_NANINF (wosc->y[0]));
-  g_assert (!GSL_DOUBLE_IS_SUBNORMAL (wosc->y[0]));
 
   wosc->done = (wosc->block.is_silent &&   /* FIXME, let filter state run out? */
 		((wosc->block.play_dir < 0 && wosc->block.offset < 0) ||
