@@ -30,7 +30,7 @@ BuildRequires(pre): rpm-macros-trinity
 # TDE variables
 %define tde_epoch 2
 %if "%{?tde_version}" == ""
-%define tde_version 14.0.4
+%define tde_version 14.1.3
 %endif
 %define tde_pkg arts
 %define tde_sbindir %{tde_prefix}/sbin
@@ -40,7 +40,7 @@ BuildRequires(pre): rpm-macros-trinity
 Name:		trinity-%{tde_pkg}
 Epoch:		%{tde_epoch}
 Version:	1.5.10
-Release:	alt1_14.0.4_1
+Release:	alt1_14.1.3_1
 Summary:	ARTS (analog realtime synthesizer) - the TDE sound system
 Group:		System/Servers
 URL:		http://www.trinitydesktop.org/
@@ -277,5 +277,8 @@ chmod 644 "%{?buildroot}%{tde_confdir}/kcmartsrc"
 
 
 %changelog
+* Sun Jan 12 2025 Petr Akhlamov <petr-akhlamov@yandex.ru> 2:1.5.10-alt1_14.1.3_1
+- Try to update 14.1.3
+
 * Sun Dec 11 2016 Hihin Ruslan <ruslandh@altlinux.ru> 2:1.5.10-alt1_14.0.4_1
 - converted for ALT Linux by srpmconvert tools
