@@ -3,9 +3,8 @@
 # optimized out: cmake-modules fontconfig glib2-devel libaudiofile-devel libogg-devel libstdc++-devel libtqt3-devel pkg-config python-base python-modules tqt3 tqt3-dev-tools
 BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-devel libtqt3-devel libvorbis-devel perl(DB_File.pm) perl(Fcntl.pm) perl(Shell.pm) pkgconfig(audiofile) pkgconfig(glib-2.0) pkgconfig(gthread-2.0)
 # END SourceDeps(oneline)
-BuildRequires(pre):	rpm-macros-suse-compat
-BuildRequires(pre):	cmake-trinity
-BuildRequires(pre): rpm-macros-trinity
+BuildRequires: rpm-macros-suse-compat cmake-trinity rpm-macros-trinity
+#BuildRequires(pre): 
 #
 # spec file for package arts (version R14)
 #
