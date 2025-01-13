@@ -4,7 +4,7 @@
 BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-devel libtqt3-devel libvorbis-devel perl(DB_File.pm) perl(Fcntl.pm) perl(Shell.pm) pkgconfig(audiofile) pkgconfig(glib-2.0) pkgconfig(gthread-2.0)
 # END SourceDeps(oneline)
 BuildRequires(pre):	rpm-macros-suse-compat
-BuildRequires(pre):	rpm-macros-cmake
+BuildRequires(pre):	cmake-trinity
 BuildRequires(pre): rpm-macros-trinity
 #
 # spec file for package arts (version R14)
