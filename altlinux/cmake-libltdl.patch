@@ -1,0 +1,13 @@
+diff --git a/trinity-arts/CMakeLists.txt b/trinity-arts/CMakeLists.txt
+index 3197104..169bb86 100644
+--- a/trinity-arts/CMakeLists.txt
++++ b/trinity-arts/CMakeLists.txt
+@@ -80,7 +80,7 @@ set( CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-undefined"
+ 
+ ##### project subdirectories ####################
+ 
+-add_subdirectory( libltdl )
++add_subdirectory( libltdl7 )
+ add_subdirectory( mcop )
+ add_subdirectory( mcopidl )
+ add_subdirectory( flow )
