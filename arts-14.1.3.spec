@@ -55,6 +55,8 @@ Prefix:		%{tde_prefix}
 
 Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
 
+Patch1: cmake-libltdl.patch
+
 # BuildRequires:	libtqt4-devel >= %{tde_epoch}:4.2.0
 # BuildRequires:	trinity-filesystem >= %{tde_version}
 # Requires:		trinity-filesystem >= %{tde_version}
@@ -215,7 +217,7 @@ intended for systems running the Pulseaudio server.
 
 %prep
 %setup -q -n %{name}-%{tde_version}%{?preversion:~%{preversion}}
-
+%patch1 -p1
 
 %build
 unset QTDIR QTINC QTLIB
