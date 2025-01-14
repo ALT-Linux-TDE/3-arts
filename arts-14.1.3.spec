@@ -5,7 +5,7 @@ BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-dev
 # END SourceDeps(oneline)
 BuildRequires: rpm-macros-suse-compat cmake-trinity rpm-macros-trinity
 #Зависимости, выявленные при сборке
-BuildRequires: libpcre2-devel libpcre2-devel-static libltdl7-devel libltdl7-devel-statc
+BuildRequires: libpcre2-devel libpcre2-devel-static libltdl7-devel libltdl7-devel-static
 #BuildRequires(pre): 
 #
 # spec file for package arts (version R14)
