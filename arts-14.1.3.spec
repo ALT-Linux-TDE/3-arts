@@ -55,8 +55,6 @@ License:	GPL-2.0+
 #Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
 Source0:	arts-trinity-14.1.3.tar
 
-Patch0: cmake-libltdl.patch
-
 # BuildRequires:	libtqt4-devel >= %{tde_epoch}:4.2.0
 # BuildRequires:	trinity-filesystem >= %{tde_version}
 # Requires:		trinity-filesystem >= %{tde_version}
