@@ -5,7 +5,8 @@ BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-dev
 # END SourceDeps(oneline)
 BuildRequires: rpm-macros-suse-compat cmake-trinity rpm-macros-trinity
 #Зависимости, выявленные при сборке
-BuildRequires: libpcre2-devel libtool_2.4 libaudiofile-devel glib2-devel libgsl-devel libltdl7-devel libgpiod-devel libvorbis-devel
+BuildRequires: libpcre2-devel libtool_2.4 libaudiofile-devel glib2-devel libgsl-devel libgpiod-devel libvorbis-devel
+#libltdl7-devel
 
 #BuildRequires(pre): 
 #
