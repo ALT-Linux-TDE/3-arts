@@ -218,7 +218,7 @@ intended for systems running the Pulseaudio server.
 
 %prep
 %setup -q -n %{name}-%{tde_version}%{?preversion:~%{preversion}}
-%patch0 -p2
+#%patch0 -p2
 
 %build
 unset QTDIR QTINC QTLIB
