@@ -39,10 +39,9 @@ BuildRequires: libpcre2-devel libtool_2.4 libaudiofile-devel glib2-devel libgsl-
 %define tde_tdeappdir %{tde_datadir}/applications/tde
 
 
-Name:		trinity-%{tde_pkg}
-Epoch:		%{tde_epoch}
-Version:	1.5.10
-Release:	alt1_14.1.3_1
+Name:		arts-trinity
+Version:	14.1.3
+Release:	alt1
 Summary:	ARTS (analog realtime synthesizer) - the TDE sound system
 Group:		System/Servers
 URL:		http://www.trinitydesktop.org/
@@ -52,8 +51,8 @@ License:	GPL-2.0+
 #Vendor:		Trinity Project
 #Packager:	Francois Andriot <francois.andriot@free.fr>
 
-#Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
-Source0:	trinity-arts-14.1.3.tar
+Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
+#Source0:	trinity-arts-14.1.3.tar
 
 # BuildRequires:	libtqt4-devel >= %{tde_epoch}:4.2.0
 # BuildRequires:	trinity-filesystem >= %{tde_version}
