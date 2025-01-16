@@ -1,11 +1,13 @@
 # BEGIN SourceDeps(oneline):
 # Automatically added by buildreq on Sun Dec 11 2016
 # optimized out: cmake-modules fontconfig glib2-devel libaudiofile-devel libogg-devel libstdc++-devel libtqt4-devel pkg-config python-base python-modules tqt3 tqt3-dev-tools
-BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-devel libtqt3-devel libvorbis-devel perl(DB_File.pm) perl(Fcntl.pm) perl(Shell.pm) pkgconfig(audiofile) pkgconfig(glib-2.0) pkgconfig(gthread-2.0) libtqt4-devel
+BuildRequires: cmake gcc-c++ libalsa-devel libesd-devel libjack-devel libmad-devel libtqt3-devel perl(DB_File.pm) perl(Fcntl.pm) perl(Shell.pm) pkgconfig(audiofile) pkgconfig(glib-2.0) pkgconfig(gthread-2.0) libtqt4-devel
 # END SourceDeps(oneline)
 BuildRequires: rpm-macros-suse-compat cmake-trinity rpm-macros-trinity
 #Зависимости, выявленные при сборке
 BuildRequires: libpcre2-devel libpcre2-devel-static libtool_2.4 libaudiofile-devel glib2-devel libgsl-devel libltdl7-devel libgpiod-devel
+
+BuildRequires: libvorbisidec-devel libvorbis-devel libvorbisidec libvorbis
 #BuildRequires(pre): 
 #
 # spec file for package arts (version R14)
