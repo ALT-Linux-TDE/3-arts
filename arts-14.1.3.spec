@@ -52,9 +52,8 @@ License:	GPL-2.0+
 #Vendor:		Trinity Project
 #Packager:	Francois Andriot <francois.andriot@free.fr>
 
-Prefix:		%{tde_prefix}
-
-Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
+#Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
+Source0:	arts-trinity-14.1.3.tar
 
 Patch0: cmake-libltdl.patch
 
@@ -218,7 +217,6 @@ intended for systems running the Pulseaudio server.
 
 %prep
 %setup -q -n %{name}-%{tde_version}%{?preversion:~%{preversion}}
-#%patch0 -p2
 
 %build
 unset QTDIR QTINC QTLIB
