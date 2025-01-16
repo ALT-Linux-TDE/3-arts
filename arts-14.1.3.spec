@@ -53,7 +53,7 @@ License:	GPL-2.0+
 #Packager:	Francois Andriot <francois.andriot@free.fr>
 
 #Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
-Source0:	arts-trinity-14.1.3.tar
+Source0:	trinity-arts-14.1.3.tar
 
 # BuildRequires:	libtqt4-devel >= %{tde_epoch}:4.2.0
 # BuildRequires:	trinity-filesystem >= %{tde_version}
