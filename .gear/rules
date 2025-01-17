@@ -1,2 +1,3 @@
-tar: trinity-arts name=trinity-arts-14.1.3
+copy:import.info
+tar.gz: arts-trinity name=arts-trinity-14.1.3
 spec: arts.spec
