@@ -52,7 +52,7 @@ License:	GPL-2.0+
 #Packager:	Francois Andriot <francois.andriot@free.fr>
 
 #Source0:	%{name}-%{tde_version}%{?preversion:~%{preversion}}.tar
-Source0:	tde-arts-14.1.3.tar.gz
+Source0:	tde-arts-14.1.3.tar
 
 # BuildRequires:	libtqt4-devel >= %{tde_epoch}:4.2.0
 # BuildRequires:	trinity-filesystem >= %{tde_version}
