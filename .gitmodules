@@ -1,6 +1,0 @@
-[submodule "admin"]
-	path = admin
-	url = https://system@scm.trinitydesktop.org/scm/git/tde-common-admin
-[submodule "libltdl"]
-	path = libltdl
-	url = https://system@scm.trinitydesktop.org/scm/git/libltdl
