@@ -213,15 +213,19 @@ intended for systems running the Pulseaudio server.
 ##########
 
 %prep
-%setup -q -n %{name}-%{tde_version}%{?preversion:~%{preversion}}
+%setup -q -n %{name}
 
 %build
 unset QTDIR QTINC QTLIB
 export PATH="%{tde_bindir}:${PATH}"
 export PKG_CONFIG_PATH="%{tde_libdir}/pkgconfig"
 
+if ! rpm -E %%cmake|grep -e 'cd build\|cd ${CMAKE_BUILD_DIR:-build}'; then
+  %__mkdir_p build
+  cd build
+fi
 
-%{suse_cmake} \
+%cmake \
   -DCMAKE_BUILD_TYPE="RelWithDebInfo" \
   -DCMAKE_C_FLAGS="${RPM_OPT_FLAGS} -DNDEBUG" \
   -DCMAKE_CXX_FLAGS="${RPM_OPT_FLAGS} -DNDEBUG" \
@@ -244,7 +248,7 @@ export PKG_CONFIG_PATH="%{tde_libdir}/pkgconfig"
   %{?with_esound:-DWITH_ESOUND=ON} \
   %{?with_jack:-DWITH_JACK=ON} \
   ..
-
+ 
 %__make %{?_smp_mflags} || %__make
 
 
